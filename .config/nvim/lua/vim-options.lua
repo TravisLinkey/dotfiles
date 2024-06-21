@@ -21,8 +21,17 @@ vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.keymap.set("n", "<leader>%", ":vsplit<CR>")
 vim.keymap.set("n", '<leader>"', ":split<CR>")
 
+-- Terminals
+vim.keymap.set("n", '<c-w>%', ":ToggleTerm direction=vertical<CR>")
+vim.keymap.set("n", '<c-w>"', ":ToggleTerm direction=horizontal<CR>")
+
+
 -- Goto in vertical split window
 vim.keymap.set('n', '<leader>]', ':vsplit | lua vim.lsp.buf.definition()<CR>')
+
+-- vim functions
+vim.keymap.set('n', '<leader>n', ':Note<CR>')
+
 
 vim.wo.number = true
 vim.opt.relativenumber = true
