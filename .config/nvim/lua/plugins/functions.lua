@@ -13,9 +13,9 @@ vim.api.nvim_create_user_command("Note", function()
   })
 end, {})
 
-vim.api.nvim_create_user_command("Tag", function()
+vim.api.nvim_create_user_command("New", function()
   local filename = vim.split(vim.fn.input "Filename: ", " ")
-  local command = "touch ~/Documents/Obsidian/Travis/6\\ -\\ Full\\ Notes/" .. table.concat(filename, "\\ ")
+  local command = "touch ~/Documents/Obsidian/Travis/1\\ -\\ Rough\\ Notes/" .. table.concat(filename, "\\ ")
 
   vim.fn.jobstart(command)
 end, {})
