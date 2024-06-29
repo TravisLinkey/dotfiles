@@ -28,11 +28,12 @@ vim.keymap.set("n", '<c-w>"', ":ToggleTerm direction=horizontal<CR>")
 vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>:CFloatTerm<CR>', {noremap = true, silent = true})
 
 -- Goto in vertical split window
-vim.keymap.set('n', '<leader>]', ':vsplit | lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set('n', '<leader>]', 'vim.lsp.buf.definition()<CR>')
 
 -- vim functions
-vim.keymap.set('n', '<c-t>', ':Note<CR>')
+vim.keymap.set('n', '<c-t>', ':Tag<CR>')
 vim.keymap.set('n', '<c-o>', ':New<CR>')
+vim.keymap.set('n', '<c-c>', ':Leetcode<CR>')
 
 
 vim.wo.number = true

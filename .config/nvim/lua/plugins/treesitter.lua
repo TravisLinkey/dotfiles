@@ -4,7 +4,11 @@ return {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
     configs.setup({
       auto_install = true,
       highlight = { enable = true },
-      indent = { enable = true },  
+      indent = { enable = true },
+      ensure_installed = {
+        "hcl",
+        "terraform",
+      }
     })
   end
 }
