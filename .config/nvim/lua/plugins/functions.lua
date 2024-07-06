@@ -1,5 +1,5 @@
 vim.api.nvim_create_user_command("Tag", function()
-  local command = "bash ~/GDrive/Scripts/printer.sh"
+  local command = "bash ~/dotfiles/Scripts/printer.sh"
 
   local append_data = function(_, data)
     local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
@@ -21,7 +21,7 @@ vim.api.nvim_create_user_command("New", function()
 end, {})
 
 vim.api.nvim_create_user_command("Leetcode", function()
-  local command = "bash ~/GDrive/Scripts/leetcode.sh"
+  local command = "bash ~/dotfiles/Scripts/leetcode.sh"
 
   local append_data = function(_, data)
     local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
