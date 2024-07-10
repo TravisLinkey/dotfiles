@@ -35,7 +35,6 @@ vim.api.nvim_create_user_command("Leetcode", function()
   })
 end, {})
 
-
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 local pickers = require('telescope.pickers')

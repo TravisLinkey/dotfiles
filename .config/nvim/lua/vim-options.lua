@@ -35,6 +35,7 @@ vim.keymap.set('n', '<leader>]', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', '<c-t>', ':Tag<CR>')
 vim.keymap.set('n', '<c-o>', ':New<CR>')
 vim.keymap.set('n', '<c-c>', ':Leetcode<CR>')
+vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
 
 
 vim.wo.number = true
