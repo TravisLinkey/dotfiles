@@ -15,7 +15,7 @@ end, {})
 
 vim.api.nvim_create_user_command("New", function()
   local filename = vim.split(vim.fn.input "Filename: ", " ")
-  local command = "touch ~/Documents/Obsidian/Travis/0\\ -\\ TODO/" .. table.concat(filename, "\\ ")
+  local command = "touch ~/Documents/Obsidian/Travis/obsidian/0\\ -\\ TODO/" .. table.concat(filename, "\\ ")
 
   vim.fn.jobstart(command)
 end, {})

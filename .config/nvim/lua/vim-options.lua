@@ -28,7 +28,6 @@ vim.keymap.set("n", '<c-w>"', ":ToggleTerm direction=horizontal<CR>")
 vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>:CFloatTerm<CR>', {noremap = true, silent = true})
 
 -- Goto in vertical split window
--- vim.keymap.set('n', '<leader>]', ':vsplit | lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', '<leader>]', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 -- vim functions
