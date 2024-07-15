@@ -1,23 +1,17 @@
-vim.api.nvim_create_user_command("Tag", function()
-  local command = "bash ~/dotfiles/Scripts/printer.sh"
+-- PRINT FUNCTIONS
+vim.api.nvim_create_user_command("IAM", function()
+  local command = "bash ~/dotfiles/Scripts/print_iam_policy.sh"
 
   local append_data = function(_, data)
     local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
     if data then
-      vim.api.nvim_buf_set_lines(0, r + 2, r + 10, false, data)
+      vim.api.nvim_buf_set_lines(0, r, r, false, data)
     end
   end
   vim.fn.jobstart(command, {
     stdout_buffered = true,
     on_stdout = append_data,
   })
-end, {})
-
-vim.api.nvim_create_user_command("New", function()
-  local filename = vim.split(vim.fn.input "Filename: ", " ")
-  local command = "touch ~/Documents/Obsidian/Travis/obsidian/0\\ -\\ TODO/" .. table.concat(filename, "\\ ")
-
-  vim.fn.jobstart(command)
 end, {})
 
 vim.api.nvim_create_user_command("Leetcode", function()
@@ -34,6 +28,30 @@ vim.api.nvim_create_user_command("Leetcode", function()
     on_stdout = append_data,
   })
 end, {})
+
+vim.api.nvim_create_user_command("Tag", function()
+  local command = "bash ~/dotfiles/Scripts/print_tags.sh"
+
+  local append_data = function(_, data)
+    local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
+    if data then
+      vim.api.nvim_buf_set_lines(0, r, r, false, data)
+    end
+  end
+  vim.fn.jobstart(command, {
+    stdout_buffered = true,
+    on_stdout = append_data,
+  })
+end, {})
+
+-- CREATE FILES
+vim.api.nvim_create_user_command("New", function()
+  local filename = vim.split(vim.fn.input "Filename: ", " ")
+  local command = "touch ~/Documents/Obsidian/Travis/obsidian/0\\ -\\ TODO/" .. table.concat(filename, "\\ ")
+
+  vim.fn.jobstart(command)
+end, {})
+
 
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')

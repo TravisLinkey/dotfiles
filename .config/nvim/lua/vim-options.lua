@@ -22,6 +22,11 @@ vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.keymap.set("n", "<leader>%", ":vsplit<CR>")
 vim.keymap.set("n", '<leader>"', ":split<CR>")
 
+-- Naviate tabs
+vim.keymap.set("n", "<c-w>t", ":tabnew<CR>")
+vim.keymap.set("n", "<c-w>n", ":+tabnext<CR>")
+vim.keymap.set("n", "<c-w>p", ":-tabnext<CR>")
+
 -- Terminals
 vim.keymap.set("n", '<c-w>%', ":ToggleTerm direction=vertical<CR>")
 vim.keymap.set("n", '<c-w>"', ":ToggleTerm direction=horizontal<CR>")
@@ -31,6 +36,7 @@ vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>:CFloatTerm<CR>', {norema
 vim.keymap.set('n', '<leader>]', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 -- vim functions
+vim.keymap.set('n', '<c-i>', ':IAM<CR>')
 vim.keymap.set('n', '<c-t>', ':Tag<CR>')
 vim.keymap.set('n', '<c-o>', ':New<CR>')
 vim.keymap.set('n', '<c-c>', ':Leetcode<CR>')
