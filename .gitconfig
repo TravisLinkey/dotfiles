@@ -1,0 +1,12 @@
+[alias]
+	tidy = "! git branch | grep -v "master$" | xargs git branch -D"
+
+[user]
+	email = liftskit@gmail.com
+	name = LiftsKit LLC
+[credential]
+	helper = 
+	helper = /usr/bin/git-credential-manager-core
+	credentialStore = secretservice
+[credential "https://dev.azure.com"]
+	useHttpPath = true
