@@ -6,9 +6,10 @@ echo "$timestamp"
 printf "\n"
 
 echo "Tags: [[]] | "
-printf "\n\n\n"
+printf "\n"
 
-
+echo "### Overview"
+printf "\n\n"
 
 echo "### References"
 echo "- [[]]"

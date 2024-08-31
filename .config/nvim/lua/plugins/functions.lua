@@ -15,7 +15,7 @@ vim.api.nvim_create_user_command("IAM", function()
 end, {})
 
 vim.api.nvim_create_user_command("Leetcode", function()
-  local command = "bash ~/dotfiles/Scripts/leetcode.sh"
+  local command = "bash ~/dotfiles/Scripts/print_leetcode.sh"
 
   local append_data = function(_, data)
     local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
@@ -47,7 +47,7 @@ end, {})
 -- CREATE FILES
 vim.api.nvim_create_user_command("New", function()
   local filename = vim.split(vim.fn.input "Filename: ", " ")
-  local command = "touch ~/Documents/Obsidian/Travis/obsidian/0\\ -\\ TODO/" .. table.concat(filename, "\\ ")
+  local command = "touch ~/Documents/Obsidian/Travis/obsidian/1\\ -\\ Rough\\ Notes/" .. table.concat(filename, "\\ ")
 
   vim.fn.jobstart(command)
 end, {})
