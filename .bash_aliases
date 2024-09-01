@@ -29,7 +29,7 @@ alias AppS='cd /home/travis/GDrive/Projects/LiftsKit/Cloud/liftskit-expo-app && 
 # Utils
 alias sort='python3 ~/GDrive/Projects/scripts/function_sorter.py'
 alias gh='eval `ssh-agent -s`; ssh-add ~/.ssh/github/LiftsKit_Gitlab; git push'
-alias vc="nvim /home/travis/Documents/Obsidian/Travis/obsidian/6\ -\ Full\ Notes/Programming/Software/Neovim/Commands.md"
+alias vc="nvim /home/travis/Documents/Obsidian/Travis/obsidian/6\ -\ Full\ Notes/Programming/Software/Neovim/Commands/Commands.md"
 
 alias vp="nvim ~/GDrive/Projects/Vim/plugins"
 alias cnvim='cd ~/.config/nvim && nvim ./init.lua'

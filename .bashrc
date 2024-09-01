@@ -4,6 +4,10 @@
 
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
+# ASDF 
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+
 eval "$(tmuxifier init -)"
 
 # If not running interactively, don't do anything
