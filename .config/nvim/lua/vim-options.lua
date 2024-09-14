@@ -36,6 +36,8 @@ vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>:CFloatTerm<CR>', {norema
 vim.keymap.set('n', '<leader>]', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 -- vim functions
+vim.keymap.set('n', '<leader>j', ':JavaScriptCode<CR>')
+vim.keymap.set('n', '<leader>p', ':PythonCode<CR>')
 vim.keymap.set('n', '<c-i>', ':IAM<CR>')
 vim.keymap.set('n', '<c-t>', ':Tag<CR>')
 vim.keymap.set('n', '<c-o>', ':New<CR>')
