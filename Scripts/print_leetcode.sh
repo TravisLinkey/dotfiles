@@ -7,16 +7,23 @@ printf "\n"
 
 echo "Tags: [[Leetcode]] | [[]]"
 printf "\n\n"
+
 echo "### Overview"
 printf "\n"
+
 echo "### Strategy"
 printf "\n"
+
 echo "### Explanation"
 printf "\n"
+
 echo "### Code"
 echo '```python'
 printf '\n```'
+
+echo "### Time Complexity"
 printf "\n\n"
+
 echo "### References"
 echo "[Leetcode Link]()"
 
