@@ -20,6 +20,7 @@ printf "\n"
 echo "### Code"
 echo '```python'
 printf '\n```'
+printf "\n"
 
 echo "### Time Complexity"
 printf "\n\n"
