@@ -19,7 +19,7 @@ alias Micro='code /home/travis/GDrive/Projects/MicroServices/workspace/ticketing
 alias App='code /home/travis/GDrive/Projects/LiftsKit/Cloud/liftskit-expo-app'
 alias DB='cd /home/travis/GDrive/Projects/LiftsKit/Cloud/database-server && nvim .'
 alias App='cd /home/travis/GDrive/Projects/LiftsKit/Cloud/liftskit-expo-app && nvim .'
-alias Notes='cd /home/travis/Documents/Obsidian/travis/travis && nvim .'
+alias Notes='cd /home/travis/Documents/Obsidian/Travis/obsidian && nvim .'
 alias cur='cd /home/travis/Documents/Obsidian/Travis/obsidian/.obsidian/plugins/note-reviewer'
 
 # Servers
