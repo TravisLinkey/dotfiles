@@ -8,6 +8,8 @@ return {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
       ensure_installed = {
         "hcl",
         "terraform",
+        "markdown",
+        "python"
       }
     })
   end

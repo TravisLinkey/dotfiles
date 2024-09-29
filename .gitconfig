@@ -5,7 +5,7 @@
 	email = liftskit@gmail.com
 	name = LiftsKit LLC
 [credential]
-	helper = 
+	helper = cache
 	helper = /usr/bin/git-credential-manager-core
 	credentialStore = secretservice
 [credential "https://dev.azure.com"]

@@ -16,7 +16,6 @@ alias Website='code /home/travis/GDrive/Projects/LiftsKit/LiftsKit_Website'
 alias DB2='code /home/travis/GDrive/Projects/LiftsKit/LiftsKit_DB'
 alias DB='code /home/travis/GDrive/Projects/LiftsKit/Cloud/database-server'
 alias Micro='code /home/travis/GDrive/Projects/MicroServices/workspace/ticketing'
-alias App='code /home/travis/GDrive/Projects/LiftsKit/Cloud/liftskit-expo-app'
 alias DB='cd /home/travis/GDrive/Projects/LiftsKit/Cloud/database-server && nvim .'
 alias App='cd /home/travis/GDrive/Projects/LiftsKit/Cloud/liftskit-expo-app && nvim .'
 alias Notes='cd /home/travis/Documents/Obsidian/Travis/obsidian && nvim .'
@@ -36,9 +35,6 @@ alias vp="nvim ~/GDrive/Projects/Vim/plugins"
 alias cnvim='cd ~/.config/nvim && nvim ./init.lua'
 alias ctmux='nvim ~/.tmux.conf'
 alias dot='cd ~/dotfiles'
+alias setup='cd ~/setup'
 
 alias plugin='cd /home/travis/Documents/Obsidian/Travis/obsidian/.obsidian/plugins/note-reviewer && npm run dev'
-
-# Personal
-alias Jobs="cd ~/Documents/Jobs/2024 && nvim ."
-alias Ideas="nvim ~/Documents/Notes/ideas"
