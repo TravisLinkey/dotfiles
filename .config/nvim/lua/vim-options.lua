@@ -13,6 +13,7 @@ vim.o.splitright = true
 -- Custom functions
 vim.keymap.set('n', '<leader>j', ':JavaScriptCode<CR>')
 vim.keymap.set('n', '<leader>p', ':PythonCode<CR>')
+vim.keymap.set('n', '<c-s>', ':Standup<CR>')
 vim.keymap.set('n', '<c-i>', ':IAM<CR>')
 vim.keymap.set('n', '<c-t>', ':Tag<CR>')
 vim.keymap.set('n', '<c-o>', ':New<CR>')

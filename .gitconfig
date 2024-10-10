@@ -2,11 +2,22 @@
 	tidy = "! git branch | grep -v "master$" | xargs git branch -D"
 
 [user]
-	email = liftskit@gmail.com
-	name = LiftsKit LLC
+# OLD
+#	email = liftskit@gmail.com
+#	name = LiftsKit LLC
+
+	email = travis.linkey@servicecore.com 
+	name = Travis Linkey 
+
 [credential]
-	helper = cache
-	helper = /usr/bin/git-credential-manager-core
-	credentialStore = secretservice
+## LINUX
+#	helper = cache
+#	helper = /usr/bin/git-credential-manager-core
+#	credentialStore = secretservice
+
+## MAC
+	helper = osxkeychain
+	helper = /usr/local/share/gcm-core/git-credential-manager
+
 [credential "https://dev.azure.com"]
 	useHttpPath = true

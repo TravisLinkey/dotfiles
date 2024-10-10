@@ -1,4 +1,19 @@
 -- PRINT FUNCTIONS--
+vim.api.nvim_create_user_command("Standup", function()
+  local command = "bash ~/dotfiles/Scripts/print_standup.sh"
+
+  local append_data = function(_, data)
+    local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
+    if data then
+      vim.api.nvim_buf_set_lines(0, r-1, r, false, data)
+    end
+  end
+  vim.fn.jobstart(command, {
+    stdout_buffered = true,
+    on_stdout = append_data,
+  })
+end, {})
+
 vim.api.nvim_create_user_command("JavaScriptCode", function()
   local command = "bash ~/dotfiles/Scripts/print_javascript_code.sh"
 
