@@ -1,14 +1,16 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+#
+eval "$(starship init bash)"
 
-export PATH="$HOME/.tmuxifier/bin:$PATH"
+# export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # ASDF 
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
+# . "$HOME/.asdf/asdf.sh"
+#j. "$HOME/.asdf/completions/asdf.bash"
 
-eval "$(tmuxifier init -)"
+# eval "$(tmuxifier init -)"
 
 # If not running interactively, don't do anything
 case $- in
@@ -132,7 +134,7 @@ export TERM=xterm
 
 export reach=/usr/local/bin/reach
 export PATH=$PATH:$reach
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
