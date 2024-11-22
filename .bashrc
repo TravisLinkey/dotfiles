@@ -2,13 +2,18 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 #
+
+yt() {
+  yt-dlp -f "bestvideo[height<=720][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/best[ext=mp4]/best" "$1"
+}
+
 eval "$(starship init bash)"
 
 # export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # ASDF 
-# . "$HOME/.asdf/asdf.sh"
-#j. "$HOME/.asdf/completions/asdf.bash"
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
 
 # eval "$(tmuxifier init -)"
 
@@ -134,7 +139,7 @@ export TERM=xterm
 
 export reach=/usr/local/bin/reach
 export PATH=$PATH:$reach
-# . "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

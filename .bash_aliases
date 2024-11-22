@@ -20,3 +20,5 @@ alias dot='cd ~/dotfiles'
 alias setup='cd ~/setup'
 
 alias cursor='cd ~/Programs && ./cursor-0.42.3x86_64.AppImage'
+
+alias music='cd ~/Documents/Music'
