@@ -4,7 +4,9 @@
 #
 
 yt() {
-  yt-dlp -f "bestvideo[height<=720][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/best[ext=mp4]/best" "$1"
+  # yt-dlp -f "bestvideo[height<=720][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/best[ext=mp4]/best" "$1"
+  
+  yt-dlp --extract-audio --audio-format mp3 "$1"
 }
 
 eval "$(starship init bash)"
