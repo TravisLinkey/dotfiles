@@ -1,9 +1,10 @@
 # App Shortcuts
 alt - c : open -a 'Cursor'
-alt - b : open -a 'google chrome'
+alt - i : open -a 'google chrome'
 alt - t : open -a 'Kitty'
 alt - v : open -a 'Visual Studio Code'
 alt - o : open -a 'Obsidian'
+alt - p : open -a 'postman'
 
 
 # focus window
