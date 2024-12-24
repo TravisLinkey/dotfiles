@@ -11,14 +11,14 @@ vim.opt.swapfile = false
 vim.o.splitright = true
 
 -- Custom functions
-vim.keymap.set('n', '<leader>j', ':JavaScriptCode<CR>')
-vim.keymap.set('n', '<leader>p', ':PythonCode<CR>')
-vim.keymap.set('n', '<c-s>', ':Standup<CR>')
-vim.keymap.set('n', '<c-i>', ':IAM<CR>')
-vim.keymap.set('n', '<c-t>', ':Tag<CR>')
-vim.keymap.set('n', '<c-o>', ':New<CR>')
-vim.keymap.set('n', '<c-c>', ':Leetcode<CR>')
-vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
+vim.keymap.set('n', '<c-t>', ':ObsidianTemplate<CR>')
+vim.keymap.set('n', '<c-o>', ':ObsidianNew<CR>')
+
+-- vim.keymap.set('n', '<leader>j', ':JavaScriptCode<CR>')
+-- vim.keymap.set('n', '<leader>p', ':PythonCode<CR>')
+-- vim.keymap.set('n', '<c-i>', ':IAM<CR>')
+-- vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
+-- vim.keymap.set('n', '<c-c>', ':Leetcode<CR>')
 
 -- Navigate vim panes
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
@@ -50,6 +50,6 @@ vim.keymap.set("n", '<leader><', ":vertical resize -70<CR>")
 vim.keymap.set('n', '<leader>]', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 
-
 vim.wo.number = true
 vim.opt.relativenumber = true
+
