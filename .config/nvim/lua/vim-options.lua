@@ -13,11 +13,11 @@ vim.o.splitright = true
 -- Custom functions
 vim.keymap.set('n', '<c-t>', ':ObsidianTemplate<CR>')
 vim.keymap.set('n', '<c-o>', ':ObsidianNew<CR>')
+vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
 
 -- vim.keymap.set('n', '<leader>j', ':JavaScriptCode<CR>')
 -- vim.keymap.set('n', '<leader>p', ':PythonCode<CR>')
 -- vim.keymap.set('n', '<c-i>', ':IAM<CR>')
--- vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
 -- vim.keymap.set('n', '<c-c>', ':Leetcode<CR>')
 
 -- Navigate vim panes
@@ -42,8 +42,11 @@ vim.keymap.set("n", '<c-w>"', ":ToggleTerm direction=horizontal<CR>")
 vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>:CFloatTerm<CR>', {noremap = true, silent = true})
 
 -- Window width 
-vim.keymap.set("n", "<leader>>", ":vertical resize +70<CR>")
-vim.keymap.set("n", '<leader><', ":vertical resize -70<CR>")
+-- vim.keymap.set("n", "<leader>>", ":vertical resize +70<CR>")
+-- vim.keymap.set("n", '<leader><', ":vertical resize -70<CR>")
+
+vim.keymap.set("n", "<leader><Left>", ":vertical resize +30<CR>")
+vim.keymap.set("n", '<leader><Right>', ":vertical resize -30<CR>")
 
 
 -- Goto in vertical split window
