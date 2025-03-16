@@ -15,11 +15,6 @@ vim.keymap.set('n', '<c-t>', ':ObsidianTemplate<CR>')
 vim.keymap.set('n', '<c-o>', ':ObsidianNew<CR>')
 vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
 
--- vim.keymap.set('n', '<leader>j', ':JavaScriptCode<CR>')
--- vim.keymap.set('n', '<leader>p', ':PythonCode<CR>')
--- vim.keymap.set('n', '<c-i>', ':IAM<CR>')
--- vim.keymap.set('n', '<c-c>', ':Leetcode<CR>')
-
 -- Navigate vim panes
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
@@ -27,10 +22,20 @@ vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 
--- Naviate tabs
-vim.keymap.set("n", "<c-w>t", ":tabnew<CR>")
-vim.keymap.set("n", "<c-w>n", ":+tabnext<CR>")
-vim.keymap.set("n", "<c-w>p", ":-tabnext<CR>")
+-- Navigate tabs
+vim.keymap.set("n", "<leader>c", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>n", ":tabnext<CR>")
+vim.keymap.set("n", "<leader>p", ":tabprevious<CR>")
+vim.keymap.set("n", "<leader>rn", ":RenameBuffer<CR>", { noremap = true, silent = true })
+
+-- Sessions
+vim.api.nvim_create_autocmd("VimLeavePre", {
+    command = "mksession! ~/Documents/Obsidian/Travis/obsidian/3\\ -\\ Sessions/",
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    command = "silent! source ~/Documents/Obsidian/Travis/obsidian/3\\ -\\ Sessions/",
+})
 
 -- Split windows
 vim.keymap.set("n", "<leader>%", ":vsplit<CR>")

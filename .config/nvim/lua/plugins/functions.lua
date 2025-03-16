@@ -161,4 +161,16 @@ vim.api.nvim_create_user_command('TelescopeMoveFile', function()
   end)
 end, {})
 
+-- Rename buffer (vim window)
+vim.api.nvim_create_user_command('RenameBuffer', function()
+  local dir = "./3 - Workspaces"
+  vim.fn.mkdir(dir, "p")
+
+  local new_name = vim.fn.input("Rename buffer to: ", dir)
+  if new_name ~= "" then
+    vim.cmd("file " .. new_name)
+    vim.cmd("write")
+  end
+end, {})
+
 return {}

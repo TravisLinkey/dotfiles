@@ -1,6 +1,10 @@
+# aliases
 alias Notes="cd ~/Documents/Obsidian/Travis/obsidian && nvim ."
+alias dc="docker-compose"
 alias dot="cd ~/dotfiles && nvim ."
 
+# work
+alias chrome='/usr/bin/open -b com.google.Chrome --args --remote-debugging-port=9222'
 
 # setup nvm
 export NVM_DIR="$HOME/.nvm"

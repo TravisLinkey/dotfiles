@@ -1,7 +1,7 @@
 # App Shortcuts
 alt - c : open -a 'Cursor'
-alt - i : open -a 'google chrome'
-alt - t : open -a 'Kitty'
+alt - w : open -a 'google chrome'
+alt - t : open -na 'Kitty'
 alt - v : open -a 'Visual Studio Code'
 alt - o : open -a 'Obsidian'
 alt - p : open -a 'postman'
