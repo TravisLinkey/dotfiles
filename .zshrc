@@ -7,8 +7,12 @@ alias dot="cd ~/dotfiles && nvim ."
 alias dp="cd ~/Projects/ServiceCore/docket-platform/apps/docket-ach-polling"
 alias be="cd ~/Projects/ServiceCore/docket-platform/apps/docket-backend"
 alias api="cd ~/Projects/ServiceCore/docket-platform/apps/docket-api"
+
+
 alias test="npm run test"
 alias start="npm run start"
+alias docs="npm run docs"
+alias openapi="yarn build:openapi"
 
 # work
 alias chrome='/usr/bin/open -b com.google.Chrome --args --remote-debugging-port=9222'

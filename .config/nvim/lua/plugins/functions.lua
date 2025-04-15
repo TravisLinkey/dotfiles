@@ -1,3 +1,10 @@
+-- OBSIDIAN FOLDER PATHS --
+local M = {}
+
+M.OBSIDIAN_BASE = "~/Documents/Obsidian/Travis/obsidian"
+M.OBSIDIAN_BACKLOG = M.OBSIDIAN_BASE .. "/0\\ -\\ Backlog"
+M.OBSIDIAN_WORKSPACES = M.OBSIDIAN_BASE .. "/3\\ -\\ Workspaces"
+
 -- PRINT FUNCTIONS--
 vim.api.nvim_create_user_command("Standup", function()
   local command = "bash ~/dotfiles/Scripts/print_standup.sh"
@@ -92,11 +99,17 @@ end, {})
 -- CREATE FILES
 vim.api.nvim_create_user_command("New", function()
   local filename = vim.split(vim.fn.input "Filename: ", " ")
-  local command = "touch ~/Documents/Obsidian/Travis/obsidian/1\\ -\\ Rough\\ Notes/" .. table.concat(filename, "\\ ")
+  local command = "touch " .. M.OBSIDIAN_BACKLOG .. "/" .. table.concat(filename, "\\ ")
 
   vim.fn.jobstart(command)
 end, {})
 
+vim.api.nvim_create_user_command("ObsidianNew", function()
+  local filename = vim.split(vim.fn.input "Filename: ", " ")
+  local command = "touch " .. M.OBSIDIAN_BACKLOG .. "/" .. table.concat(filename, "\\ ")
+
+  vim.fn.jobstart(command)
+end, {})
 
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
@@ -163,7 +176,7 @@ end, {})
 
 -- Rename buffer (vim window)
 vim.api.nvim_create_user_command('RenameBuffer', function()
-  local dir = "./3 - Workspaces"
+  local dir = M.OBSIDIAN_WORKSPACES
   vim.fn.mkdir(dir, "p")
 
   local new_name = vim.fn.input("Rename buffer to: ", dir)
@@ -173,4 +186,4 @@ vim.api.nvim_create_user_command('RenameBuffer', function()
   end
 end, {})
 
-return {}
+return M
