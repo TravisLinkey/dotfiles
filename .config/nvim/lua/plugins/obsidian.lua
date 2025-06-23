@@ -22,7 +22,7 @@ return {
       }
     },
     templates = {
-      folder = "5 - Templates"
+      folder = "4 - Templates"
     },
     ui = {
       enable = false,
