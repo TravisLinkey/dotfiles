@@ -28,15 +28,6 @@ vim.keymap.set("n", "<leader>n", ":tabnext<CR>")
 vim.keymap.set("n", "<leader>p", ":tabprevious<CR>")
 vim.keymap.set("n", "<leader>rn", ":RenameBuffer<CR>", { noremap = true, silent = true })
 
--- Sessions
-vim.api.nvim_create_autocmd("VimLeavePre", {
-    command = "mksession! ~/Documents/Obsidian/Travis/obsidian/3\\ -\\ Sessions/",
-})
-
-vim.api.nvim_create_autocmd("VimEnter", {
-    command = "silent! source ~/Documents/Obsidian/Travis/obsidian/3\\ -\\ Sessions/",
-})
-
 -- Split windows
 vim.keymap.set("n", "<leader>%", ":vsplit<CR>")
 vim.keymap.set("n", '<leader>"', ":split<CR>")

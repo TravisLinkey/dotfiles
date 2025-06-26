@@ -111,12 +111,6 @@ vim.api.nvim_create_user_command("ObsidianNew", function()
   vim.fn.jobstart(command)
 end, {})
 
-local actions = require('telescope.actions')
-local action_state = require('telescope.actions.state')
-local pickers = require('telescope.pickers')
-local finders = require('telescope.finders')
-local conf = require('telescope.config').values
-
 -- Function to move a file
 local function move_file(src, dest)
   local cmd = string.format('mv %s %s', vim.fn.shellescape(src), vim.fn.shellescape(dest))
@@ -131,6 +125,12 @@ end
 
 -- Custom picker to select the source file
 local function select_file(prompt_title, cwd, callback)
+  local actions = require('telescope.actions')
+  local action_state = require('telescope.actions.state')
+  local pickers = require('telescope.pickers')
+  local finders = require('telescope.finders')
+  local conf = require('telescope.config').values
+
   pickers.new({}, {
     prompt_title = prompt_title,
     finder = finders.new_oneshot_job({ 'find', cwd, '-type', 'f' }, { cwd = cwd }),
@@ -148,6 +148,12 @@ end
 
 -- Custom picker to select the destination directory
 local function select_directory(prompt_title, cwd, callback)
+  local actions = require('telescope.actions')
+  local action_state = require('telescope.actions.state')
+  local pickers = require('telescope.pickers')
+  local finders = require('telescope.finders')
+  local conf = require('telescope.config').values
+
   pickers.new({}, {
     prompt_title = prompt_title,
     finder = finders.new_oneshot_job({ 'find', cwd, '-type', 'd' }, { cwd = cwd }),
