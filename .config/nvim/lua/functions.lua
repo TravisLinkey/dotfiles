@@ -5,6 +5,33 @@ M.OBSIDIAN_BASE = "~/Documents/Obsidian/Travis/obsidian"
 M.OBSIDIAN_BACKLOG = M.OBSIDIAN_BASE .. "/0\\ -\\ Backlog"
 M.OBSIDIAN_WORKSPACES = M.OBSIDIAN_BASE .. "/3\\ -\\ Workspaces"
 
+-- Function to check and fix buffer modifiability issues
+M.check_buffer_modifiable = function()
+  local buf = vim.api.nvim_get_current_buf()
+  local is_modifiable = vim.api.nvim_buf_get_option(buf, 'modifiable')
+  local is_readonly = vim.api.nvim_buf_get_option(buf, 'readonly')
+  
+  print("Buffer modifiable:", is_modifiable)
+  print("Buffer readonly:", is_readonly)
+  print("File type:", vim.bo.filetype)
+  print("Buffer type:", vim.bo.buftype)
+  
+  if not is_modifiable then
+    print("Buffer is not modifiable. Attempting to fix...")
+    vim.api.nvim_buf_set_option(buf, 'modifiable', true)
+    print("Buffer modifiable set to true")
+  end
+  
+  if is_readonly then
+    print("Buffer is readonly. Attempting to fix...")
+    vim.api.nvim_buf_set_option(buf, 'readonly', false)
+    print("Buffer readonly set to false")
+  end
+end
+
+-- Command to check buffer status
+vim.api.nvim_create_user_command("CheckBuffer", M.check_buffer_modifiable, {})
+
 -- PRINT FUNCTIONS--
 vim.api.nvim_create_user_command("Standup", function()
   local command = "bash ~/dotfiles/Scripts/print_standup.sh"

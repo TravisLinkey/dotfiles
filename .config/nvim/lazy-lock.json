@@ -29,6 +29,8 @@
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" },
   "toggleterm.nvim": { "branch": "main", "commit": "137d06fb103952a0fb567882bb8527e2f92d327d" },
+  "vim-markdown": { "branch": "master", "commit": "8f6cb3a6ca4e3b6bcda0730145a0b700f3481b51" },
+  "vim-markdown-toc": { "branch": "master", "commit": "aa9cc3b07791db5cbe5f29d661763bc0eb4fb7c1" },
   "vim-test": { "branch": "master", "commit": "fc80488d509e8cab635bb3b6c75f9946f562e21e" },
   "vim-tmux-navigator": { "branch": "master", "commit": "412c474e97468e7934b9c217064025ea7a69e05e" },
   "vimux": { "branch": "master", "commit": "7db6b2f79d432ee3820668b1d4625311dbe1d0ad" }
