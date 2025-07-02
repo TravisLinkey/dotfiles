@@ -10,9 +10,28 @@ vim.g.background = "light"
 vim.opt.swapfile = false
 vim.o.splitright = true
 
+-- Function to ensure buffer is modifiable for obsidian operations
+vim.api.nvim_create_user_command('EnsureModifiable', function()
+  vim.bo.modifiable = true
+  vim.bo.readonly = false
+  vim.notify("Buffer is now modifiable", vim.log.levels.INFO)
+end, {})
+
+-- Ensure markdown buffers are modifiable for obsidian.nvim
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.bo.modifiable = true
+    vim.bo.readonly = false
+  end,
+})
+
 -- Custom functions
 vim.keymap.set('n', '<c-t>', ':ObsidianTemplate<CR>')
 vim.keymap.set('n', '<c-o>', ':ObsidianNew<CR>')
+vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
+
+-- Navigate vim panes
 vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
 
 -- Navigate vim panes

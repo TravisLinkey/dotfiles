@@ -25,6 +25,15 @@ return {
       vim.g.vim_markdown_auto_insert_bullets = 0
       vim.g.vim_markdown_new_list_item_indent = 0
       vim.g.vim_markdown_folding_style_pythonic = 1
+      
+      -- Ensure buffer is modifiable for obsidian.nvim compatibility
+      vim.g.vim_markdown_edit_url_in = 'tab'
+      vim.g.vim_markdown_follow_anchor = 1
+      
+      -- Disable features that might interfere with obsidian.nvim
+      vim.g.vim_markdown_auto_insert_bullets = 0
+      vim.g.vim_markdown_new_list_item_indent = 0
+      vim.g.vim_markdown_strikethrough = 0
     end
   },
   {

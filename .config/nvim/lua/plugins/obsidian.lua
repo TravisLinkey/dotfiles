@@ -32,6 +32,22 @@ return {
       return title
     end,
 
+    -- Add safety checks for buffer modifiability
+    mappings = {
+      -- Override default mappings to add safety checks
+      ["<leader>ch"] = {
+        action = function()
+          -- Check if buffer is modifiable before toggling checkbox
+          if vim.bo.modifiable then
+            require("obsidian").util.toggle_checkbox()
+          else
+            vim.notify("Buffer is not modifiable", vim.log.levels.WARN)
+          end
+        end,
+        opts = { buffer = true },
+      },
+    },
+
     -- see below for full list of options 👇
   },
 }
