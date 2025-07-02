@@ -32,22 +32,47 @@ return {
       return title
     end,
 
-    -- Add safety checks for buffer modifiability
-    mappings = {
-      -- Override default mappings to add safety checks
-      ["<leader>ch"] = {
-        action = function()
-          -- Check if buffer is modifiable before toggling checkbox
+    -- see below for full list of options 👇
+  },
+  config = function(_, opts)
+    require("obsidian").setup(opts)
+    
+    -- Add custom checkbox toggle mapping that works with completion plugin
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "markdown",
+      callback = function()
+        -- Ensure buffer is modifiable
+        vim.bo.modifiable = true
+        vim.bo.readonly = false
+        
+        -- Map Enter to toggle checkbox when cursor is on a checkbox line
+        vim.keymap.set("n", "<CR>", function()
+          local line = vim.api.nvim_get_current_line()
+          -- Check if the line contains a checkbox (more specific pattern)
+          if line:match("^%s*%-%s*%[%s?%]") or line:match("^%s*%-%s*%[x%]") or 
+             line:match("^%s*%*%s*%[%s?%]") or line:match("^%s*%*%s*%[x%]") or
+             line:match("^%s*%+%s*%[%s?%]") or line:match("^%s*%+%s*%[x%]") then
+            -- Toggle checkbox
+            if vim.bo.modifiable then
+              require("obsidian").util.toggle_checkbox()
+            else
+              vim.notify("Buffer is not modifiable", vim.log.levels.WARN)
+            end
+          else
+            -- Normal Enter behavior
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, true, true), "n", false)
+          end
+        end, { buffer = true, noremap = true })
+        
+        -- Alternative mapping for checkbox toggle
+        vim.keymap.set("n", "<leader>ch", function()
           if vim.bo.modifiable then
             require("obsidian").util.toggle_checkbox()
           else
             vim.notify("Buffer is not modifiable", vim.log.levels.WARN)
           end
-        end,
-        opts = { buffer = true },
-      },
-    },
-
-    -- see below for full list of options 👇
-  },
+        end, { buffer = true, noremap = true })
+      end,
+    })
+  end,
 }

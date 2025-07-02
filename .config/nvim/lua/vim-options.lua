@@ -17,6 +17,27 @@ vim.api.nvim_create_user_command('EnsureModifiable', function()
   vim.notify("Buffer is now modifiable", vim.log.levels.INFO)
 end, {})
 
+-- Command to move files (replacement for Ctrl+M)
+vim.api.nvim_create_user_command('MoveFile', function()
+  vim.cmd(':TelescopeMoveFile')
+end, {})
+
+-- Safe checkbox toggle function
+vim.api.nvim_create_user_command('ToggleCheckbox', function()
+  -- Ensure buffer is modifiable
+  vim.bo.modifiable = true
+  vim.bo.readonly = false
+  
+  -- Try to toggle checkbox safely
+  local success, result = pcall(function()
+    require("obsidian").util.toggle_checkbox()
+  end)
+  
+  if not success then
+    vim.notify("Failed to toggle checkbox: " .. tostring(result), vim.log.levels.ERROR)
+  end
+end, {})
+
 -- Ensure markdown buffers are modifiable for obsidian.nvim
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
@@ -26,13 +47,21 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Additional autocommand to ensure modifiability when opening files
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*.md",
+  callback = function()
+    vim.bo.modifiable = true
+    vim.bo.readonly = false
+  end,
+})
+
 -- Custom functions
 vim.keymap.set('n', '<c-t>', ':ObsidianTemplate<CR>')
 vim.keymap.set('n', '<c-o>', ':ObsidianNew<CR>')
-vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
+vim.keymap.set('n', '<leader>mv', ':TelescopeMoveFile<CR>')
 
 -- Navigate vim panes
-vim.keymap.set('n', '<c-m>', ':TelescopeMoveFile<CR>')
 
 -- Navigate vim panes
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
