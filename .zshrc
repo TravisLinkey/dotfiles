@@ -1,26 +1,8 @@
 # aliases
-alias docker="/Applications/Docker.app/Contents/Resources/bin/docker"
-alias Notes="cd ~/Documents/Obsidian/Travis/obsidian && nvim ."
-alias chat="cd ~/Projects/Elixir/workspace/chat_app"
-alias dc="docker-compose"
-alias dcub="docker-compose up --build"
-alias dot="cd ~/dotfiles && nvim ."
-
-## Git
-alias gc="git checkout"
-alias gp="git pull"
-
-
-# workspaces
-alias dp="cd ~/Projects/ServiceCore/docket-platform/apps/docket-ach-polling"
-alias be="cd ~/Projects/ServiceCore/docket-platform/apps/docket-backend"
-alias api="cd ~/Projects/ServiceCore/docket-platform/apps/docket-api"
-
-
-alias test="npm run test"
-alias start="npm run start"
-alias docs="npm run docs"
-alias openapi="yarn build:openapi"
+for file in ~/dotfiles/zsh/aliases/*.zsh; do
+  echo "[zsh] Sourcing ${file}"
+  source "$file"
+done
 
 # work
 # alias chrome='/usr/bin/open -b com.google.Chrome --args --remote-debugging-port=9222'
