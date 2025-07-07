@@ -9,7 +9,10 @@ return {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
         "hcl",
         "terraform",
         "markdown",
-        "python"
+        "python",
+        "elixir",
+        "heex",
+        "eex"
       }
     })
   end

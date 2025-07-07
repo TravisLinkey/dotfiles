@@ -10,8 +10,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      auto_install = true,
-      ensure_installed = { "lua_ls", "ts_ls", "gopls" }
+      ensure_installed = { "lua_ls", "ts_ls", "gopls", "html", "elixir-ls" },
+      automatic_installation = false,
     },
   },
   {
@@ -30,14 +30,34 @@ return {
       lspconfig.solargraph.setup({
         capabilities = capabilities
       })
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
       lspconfig.gopls.setup({
         capabilities = capabilities
       })
       lspconfig.html.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        settings = {
+          html = {
+            format = {
+              templating = true,
+              wrapLineLength = 120,
+              wrapAttributes = "auto",
+            },
+            suggest = {
+              html5 = true,
+            },
+          },
+        },
+      })
+      lspconfig.elixirls.setup({
+        capabilities = capabilities,
+        settings = {
+          elixirLS = {
+            dialyzerEnabled = true,
+            fetchDeps = true,
+            suggestSpecs = true,
+            mixEnv = "dev",
+          },
+        },
       })
       lspconfig.lua_ls.setup({
         settings = {

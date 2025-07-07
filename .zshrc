@@ -1,6 +1,7 @@
 # aliases
 alias docker="/Applications/Docker.app/Contents/Resources/bin/docker"
 alias Notes="cd ~/Documents/Obsidian/Travis/obsidian && nvim ."
+alias chat="cd ~/Projects/Elixir/workspace/chat_app"
 alias dc="docker-compose"
 alias dcub="docker-compose up --build"
 alias dot="cd ~/dotfiles && nvim ."
@@ -46,3 +47,8 @@ eval "$(pyenv init -)"
 
 # openai key
 [ -f ~/dotfiles/openai_env ] && source ~/dotfiles/openai_env
+
+
+# Elixir
+export PATH=$HOME//opt/homebrew/Cellar/erlang/28.0.1/lib/erlang/erts-16.0.1/bin:$PATH
+export PATH=$HOME//opt/homebrew/bin:$PATH
