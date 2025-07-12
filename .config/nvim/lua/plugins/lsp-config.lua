@@ -33,8 +33,13 @@ return {
       lspconfig.gopls.setup({
         capabilities = capabilities
       })
+      lspconfig.emmet_language_server.setup({
+        capabilities = capabilities,
+        filetypes = { "html", "heex" },
+      })
       lspconfig.html.setup({
         capabilities = capabilities,
+        filetypes = { "html", "heex" },
         settings = {
           html = {
             format = {
