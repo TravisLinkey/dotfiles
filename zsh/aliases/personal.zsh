@@ -1,0 +1,1 @@
+alias kkk="killall kitty"
