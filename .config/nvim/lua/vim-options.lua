@@ -100,3 +100,6 @@ vim.keymap.set('n', '<leader>]', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.wo.number = true
 vim.opt.relativenumber = true
 
+-- Enable syntax highlighting
+vim.cmd("syntax on")
+

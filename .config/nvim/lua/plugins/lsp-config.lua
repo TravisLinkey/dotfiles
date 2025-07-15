@@ -10,26 +10,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      ensure_installed = { "lua_ls", "tsserver", "gopls", "html", "elixirls" },
+      ensure_installed = { "lua_ls", "ts_ls", "gopls", "html", "elixir-ls" },
       automatic_installation = false,
-      handlers = {
-        -- Disable automatic setup for servers we configure manually
-        lua_ls = function(server_name)
-          -- Skip automatic setup, we'll do it manually
-        end,
-        tsserver = function(server_name)
-          -- Skip automatic setup, we'll do it manually
-        end,
-        gopls = function(server_name)
-          -- Skip automatic setup, we'll do it manually
-        end,
-        html = function(server_name)
-          -- Skip automatic setup, we'll do it manually
-        end,
-        elixirls = function(server_name)
-          -- Skip automatic setup, we'll do it manually
-        end,
-      },
     },
   },
   {
@@ -39,7 +21,7 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lspconfig = require("lspconfig")
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities
       })
       lspconfig.eslint.setup({
@@ -73,6 +55,7 @@ return {
       })
       lspconfig.elixirls.setup({
         capabilities = capabilities,
+        cmd = { "elixir-ls" },
         settings = {
           elixirLS = {
             dialyzerEnabled = true,
