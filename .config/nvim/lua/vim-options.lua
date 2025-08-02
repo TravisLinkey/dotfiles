@@ -85,6 +85,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         
         -- Get the filename without extension for the ID
         local filename = vim.fn.fnamemodify(bufname, ":t:r")
+        vim.notify("Filename for ID: " .. filename, vim.log.levels.INFO)
         
         local metadata = {
           "---",
@@ -97,8 +98,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
           ""
         }
         
+        vim.notify("Metadata lines: " .. vim.inspect(metadata), vim.log.levels.INFO)
+        
         -- Insert metadata at the beginning
-        vim.api.nvim_buf_set_lines(0, 0, 0, false, metadata)
+        local success = pcall(function()
+          vim.api.nvim_buf_set_lines(0, 0, 0, false, metadata)
+        end)
+        
+        if success then
+          vim.notify("Frontmatter added successfully", vim.log.levels.INFO)
+        else
+          vim.notify("Failed to add frontmatter", vim.log.levels.ERROR)
+        end
       else
         vim.notify("File already has frontmatter: " .. bufname, vim.log.levels.INFO)
       end
@@ -110,6 +121,24 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.keymap.set('n', '<c-t>', ':ObsidianTemplate<CR>')
 vim.keymap.set('n', '<c-o>', ':ObsidianNew<CR>')
 vim.keymap.set('n', '<leader>mv', ':TelescopeMoveFile<CR>')
+
+-- Toggle checkbox in markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    -- Only set up checkbox toggle if it's a real markdown file (not neo-tree)
+    local bufname = vim.api.nvim_buf_get_name(0)
+    if vim.bo.buftype ~= "nofile" and not bufname:match("neo%-tree") then
+      vim.keymap.set("n", "<leader>;", function()
+        if vim.bo.modifiable then
+          require("obsidian").util.toggle_checkbox()
+        else
+          vim.notify("Buffer is not modifiable", vim.log.levels.WARN)
+        end
+      end, { buffer = true, noremap = true })
+    end
+  end,
+})
 
 -- Navigate vim panes
 
