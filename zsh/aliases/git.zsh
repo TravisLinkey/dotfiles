@@ -10,7 +10,7 @@ alias gco="git checkout"
 alias gcb="git checkout -b"
 
 alias gb="git branch"
-alias gbd="git branch -D"
+alias gbr="git branch -D"
 
 alias gpl="git pull"
 alias gps="git push"
