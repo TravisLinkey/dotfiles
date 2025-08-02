@@ -45,27 +45,8 @@ return {
         vim.bo.modifiable = true
         vim.bo.readonly = false
         
-        -- Map Enter to toggle checkbox when cursor is on a checkbox line
-        vim.keymap.set("n", "<CR>", function()
-          local line = vim.api.nvim_get_current_line()
-          -- Check if the line contains a checkbox (more specific pattern)
-          if line:match("^%s*%-%s*%[%s?%]") or line:match("^%s*%-%s*%[x%]") or 
-             line:match("^%s*%*%s*%[%s?%]") or line:match("^%s*%*%s*%[x%]") or
-             line:match("^%s*%+%s*%[%s?%]") or line:match("^%s*%+%s*%[x%]") then
-            -- Toggle checkbox
-            if vim.bo.modifiable then
-              require("obsidian").util.toggle_checkbox()
-            else
-              vim.notify("Buffer is not modifiable", vim.log.levels.WARN)
-            end
-          else
-            -- Normal Enter behavior
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, true, true), "n", false)
-          end
-        end, { buffer = true, noremap = true })
-        
-        -- Alternative mapping for checkbox toggle
-        vim.keymap.set("n", "<leader>ch", function()
+        -- Map leader + ; to toggle checkbox
+        vim.keymap.set("n", "<leader>;", function()
           if vim.bo.modifiable then
             require("obsidian").util.toggle_checkbox()
           else
