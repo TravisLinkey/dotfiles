@@ -56,66 +56,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- Add frontmatter on save for obsidian vault files
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.md",
-  callback = function()
-    local bufname = vim.api.nvim_buf_get_name(0)
-    
-    -- Only process files in the obsidian vault
-    if bufname:match("Documents/Obsidian/Travis/obsidian") then
-      vim.notify("Processing obsidian file: " .. bufname, vim.log.levels.INFO)
-      
-      local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-      local has_frontmatter = false
-      
-      -- Check if file already has frontmatter
-      if #lines > 0 and lines[1] == "---" then
-        for i = 2, #lines do
-          if lines[i] == "---" then
-            has_frontmatter = true
-            break
-          end
-        end
-      end
-      
-      -- Add frontmatter if it doesn't exist
-      if not has_frontmatter then
-        vim.notify("Adding frontmatter to: " .. bufname, vim.log.levels.INFO)
-        
-        -- Get the filename without extension for the ID
-        local filename = vim.fn.fnamemodify(bufname, ":t:r")
-        vim.notify("Filename for ID: " .. filename, vim.log.levels.INFO)
-        
-        local metadata = {
-          "---",
-          "id: " .. filename,
-          "created: " .. os.date("%Y-%m-%d %H:%M:%S"),
-          "modified: " .. os.date("%Y-%m-%d %H:%M:%S"),
-          "tags: []",
-          "aliases: []",
-          "---",
-          ""
-        }
-        
-        vim.notify("Metadata lines: " .. vim.inspect(metadata), vim.log.levels.INFO)
-        
-        -- Insert metadata at the beginning
-        local success = pcall(function()
-          vim.api.nvim_buf_set_lines(0, 0, 0, false, metadata)
-        end)
-        
-        if success then
-          vim.notify("Frontmatter added successfully", vim.log.levels.INFO)
-        else
-          vim.notify("Failed to add frontmatter", vim.log.levels.ERROR)
-        end
-      else
-        vim.notify("File already has frontmatter: " .. bufname, vim.log.levels.INFO)
-      end
-    end
-  end,
-})
+
 
 -- Custom functions
 vim.keymap.set('n', '<c-t>', ':ObsidianTemplate<CR>')
