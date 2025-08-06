@@ -35,11 +35,17 @@ return {
         return note.metadata
       end
       
+      -- Get filename from current buffer
+      local bufname = vim.api.nvim_buf_get_name(0)
+      local filename = vim.fn.fnamemodify(bufname, ":t:r")
+      
       -- Return default frontmatter if none exists
       return {
+        id = filename,
         created = os.date("%Y-%m-%d %H:%M:%S"),
         modified = os.date("%Y-%m-%d %H:%M:%S"),
         tags = {},
+        aliases = {},
       }
     end,
 
