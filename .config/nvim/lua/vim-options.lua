@@ -56,6 +56,50 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
+-- Add frontmatter on save for obsidian vault files with correct field order
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.md",
+  callback = function()
+    local bufname = vim.api.nvim_buf_get_name(0)
+    
+    -- Only process files in the obsidian vault
+    if bufname:match("Documents/Obsidian/Travis/obsidian") then
+      local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+      local has_frontmatter = false
+      
+      -- Check if file already has frontmatter
+      if #lines > 0 and lines[1] == "---" then
+        for i = 2, #lines do
+          if lines[i] == "---" then
+            has_frontmatter = true
+            break
+          end
+        end
+      end
+      
+      -- Add frontmatter if it doesn't exist
+      if not has_frontmatter then
+        -- Get the filename without extension for the ID
+        local filename = vim.fn.fnamemodify(bufname, ":t:r")
+        
+        local metadata = {
+          "---",
+          "id: " .. filename,
+          "created: " .. os.date("%Y-%m-%d %H:%M:%S"),
+          "modified: " .. os.date("%Y-%m-%d %H:%M:%S"),
+          "aliases: []",
+          "tags: []",
+          "---",
+          ""
+        }
+        
+        -- Insert metadata at the beginning
+        vim.api.nvim_buf_set_lines(0, 0, 0, false, metadata)
+      end
+    end
+  end,
+})
+
 
 
 -- Custom functions
