@@ -21,7 +21,10 @@ alias gl="git log --oneline --graph --decorate --all"
 alias gwta="git worktree add"
 alias gwtl="git worktree list"
 alias gwtr="git worktree remove"
+alias gwtp="git worktree prune"
 
 ## Misc
 alias gf="git fetch --all --prune"
 alias gcp="git cherry-pick"
+
+alias create="bash ~/dotfiles/zsh/aliases/create_worktree.sh"
