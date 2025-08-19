@@ -12,6 +12,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "elixir", "typescript", "typescriptreact" },
+  callback = function()
+    vim.opt_local.foldmethod = "indent"
+    vim.opt_local.foldlevel = 0
+  end,
+})
+
+
 require("vim-options")
 require("functions")
 require("lazy").setup("plugins")

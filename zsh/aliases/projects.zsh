@@ -7,4 +7,5 @@ alias dot="cd ~/dotfiles && nvim ."
 alias cab="cd ~/Projects/Elixir/workspace/liftskit_chat//"
 alias caf="cd ~/Projects/ReactNative/workspace/chat-app/"
 
-# alias cab="cd ~/Projects/Elixir/workspace/chat_room_v2/"
+alias backend="cd ~/Projects/Personal/workspace/database-server/"
+alias frontend="cd ~/Projects/Personal/workspace/liftskit-expo-app/"
