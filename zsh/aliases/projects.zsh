@@ -9,3 +9,4 @@ alias caf="cd ~/Projects/ReactNative/workspace/chat-app/"
 
 alias backend="cd ~/Projects/Personal/workspace/database-server/"
 alias frontend="cd ~/Projects/Personal/workspace/liftskit-expo-app/"
+alias backend="cd ~/Projects/Elixir/workspace/liftskit_backend/"
