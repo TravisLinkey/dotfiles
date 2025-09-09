@@ -145,6 +145,34 @@ vim.keymap.set("n", '<leader><Right>', ":vertical resize -30<CR>")
 -- Goto in vertical split window
 vim.keymap.set('n', '<leader>]', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
+-- Toggle checkbox functionality
+vim.keymap.set('n', '<leader>r', function()
+  local line = vim.api.nvim_get_current_line()
+  local cursor_col = vim.api.nvim_win_get_cursor(0)[2]
+  
+  -- Check if line already has a checkbox
+  local checkbox_pattern = '^%s*%-%s*%[%s*%]%s*'
+  local checked_pattern = '^%s*%-%s*%[%s*[xX]%s*%]%s*'
+  
+  if line:match(checked_pattern) then
+    -- Toggle checked to unchecked
+    local new_line = line:gsub('%-%s*%[%s*[xX]%s*%]', '- [ ]')
+    vim.api.nvim_set_current_line(new_line)
+  elseif line:match(checkbox_pattern) then
+    -- Toggle unchecked to checked
+    local new_line = line:gsub('%-%s*%[%s*%]', '- [x]')
+    vim.api.nvim_set_current_line(new_line)
+  else
+    -- Add checkbox to beginning of line
+    local indent = line:match('^(%s*)')
+    local new_line = indent .. '- [ ] ' .. line:gsub('^%s*', '')
+    vim.api.nvim_set_current_line(new_line)
+  end
+  
+  -- Restore cursor position
+  vim.api.nvim_win_set_cursor(0, {vim.api.nvim_win_get_cursor(0)[1], cursor_col})
+end, { noremap = true, silent = true })
+
 
 vim.wo.number = true
 vim.opt.relativenumber = true
