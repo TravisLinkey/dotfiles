@@ -27,4 +27,4 @@ alias gwtp="git worktree prune"
 alias gf="git fetch --all --prune"
 alias gcp="git cherry-pick"
 
-alias create="bash ~/dotfiles/zsh/aliases/create_worktree.sh"
+alias gwtc="bash ~/dotfiles/zsh/aliases/create_worktree.sh"

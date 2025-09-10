@@ -142,8 +142,18 @@ vim.keymap.set("n", "<leader><Left>", ":vertical resize +30<CR>")
 vim.keymap.set("n", '<leader><Right>', ":vertical resize -30<CR>")
 
 
--- Goto in vertical split window
-vim.keymap.set('n', '<leader>]', '<cmd>lua vim.lsp.buf.definition()<CR>')
+-- Goto in vertical split window - smart mapping for LSP and Obsidian links
+vim.keymap.set('n', '<leader>]', function()
+  -- Check if we're in a markdown file and on an Obsidian link
+  if vim.bo.filetype == 'markdown' and require('obsidian.util').cursor_on_markdown_link() then
+    -- Follow Obsidian link in vertical split
+    vim.cmd('vsplit')
+    vim.cmd('ObsidianFollowLink')
+  else
+    -- Use LSP definition for other file types
+    vim.lsp.buf.definition()
+  end
+end, { desc = "Go to definition or follow Obsidian link" })
 
 -- Toggle checkbox functionality
 vim.keymap.set('n', '<leader>r', function()
