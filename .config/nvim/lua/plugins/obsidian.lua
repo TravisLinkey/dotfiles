@@ -72,15 +72,24 @@ return {
         if frontmatter_end then
           local modified_updated = false
           local created_exists = false
+          local id_updated = false
           
-          -- Update or add modified field, check for created field
+          -- Update or add modified field, check for created field, update id field
           for i = 2, frontmatter_end - 1 do
             if lines[i]:match("^modified:") then
               lines[i] = "modified: " .. current_time
               modified_updated = true
             elseif lines[i]:match("^created:") then
               created_exists = true
+            elseif lines[i]:match("^id:") then
+              lines[i] = "id: " .. filename
+              id_updated = true
             end
+          end
+          
+          -- If id field doesn't exist, add it
+          if not id_updated then
+            table.insert(lines, frontmatter_end, "id: " .. filename)
           end
           
           -- If modified field doesn't exist, add it
