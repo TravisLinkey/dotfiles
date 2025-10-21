@@ -28,3 +28,6 @@ alias gf="git fetch --all --prune"
 alias gcp="git cherry-pick"
 
 alias gwtc="bash ~/dotfiles/zsh/aliases/create_worktree.sh"
+
+## Git config switching
+alias gswitch="bash ~/dotfiles/git-switch.sh"

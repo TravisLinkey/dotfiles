@@ -1,21 +1,22 @@
 [alias]
 	tidy = "! git branch | grep -v "master$" | xargs git branch -D"
 
-[user]
-# OLD
-#	email = liftskit@gmail.com
-#	name = LiftsKit LLC
+# Conditional includes based on directory
+[includeIf "gitdir:~/Projects/Personal/"]
+	path = ~/.gitconfigs/personal
 
-	email = travis.linkey@servicecore.com 
-	name = Travis Linkey 
+[includeIf "gitdir:~/Projects/Work/"]
+	path = ~/.gitconfigs/work
+
+[includeIf "gitdir:~/Projects/NextJS/workspace/website-v2/"]
+	path = ~/.gitconfigs/personal
+
+# Default config (fallback)
+[user]
+	name = Travis Linkey
+	email = travis.linkey@servicecore.com
 
 [credential]
-## LINUX
-#	helper = cache
-#	helper = /usr/bin/git-credential-manager-core
-#	credentialStore = secretservice
-
-## MAC
 	helper = osxkeychain
 	helper = /usr/local/share/gcm-core/git-credential-manager
 
