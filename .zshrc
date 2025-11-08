@@ -4,6 +4,16 @@ for file in ~/dotfiles/zsh/aliases/*.zsh; do
   source "$file"
 done
 
+goto() {
+  local dest=$(bash ~/dotfiles/zsh/aliases/scripts/goto.sh $1)
+  if [ $? -eq 0 ] && [ -d "$dest" ]; then
+    cd "$dest"
+  else
+    echo "Failed to navigate to: $1" >&2
+    return 1
+  fi
+}
+
 # work
 # alias chrome='/usr/bin/open -b com.google.Chrome --args --remote-debugging-port=9222'
 alias chrome="/usr/bin/open -na 'Google Chrome' --args --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug-profile"
@@ -34,3 +44,5 @@ eval "$(pyenv init -)"
 # Elixir
 export PATH=$HOME//opt/homebrew/Cellar/erlang/28.0.1/lib/erlang/erts-16.0.1/bin:$PATH
 export PATH=$HOME//opt/homebrew/bin:$PATH
+alias kl="kill \$(lsof -ti:\$1)"
+

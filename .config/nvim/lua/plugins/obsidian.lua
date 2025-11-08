@@ -110,6 +110,8 @@ return {
         local frontmatter = {
           "---",
           "id: " .. filename,
+          "Subject:",
+          "Type:",
           "created: " .. current_time,
           "modified: " .. current_time,
           "aliases: []",

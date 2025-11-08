@@ -28,4 +28,4 @@ git branch $FULL_BRANCH
 echo "Creating worktree - $FULL_BRANCH..."
 git worktree add "../$BRANCH_NAME" $FULL_BRANCH
 
-echo "Done!"
+echo "✅ Done!"

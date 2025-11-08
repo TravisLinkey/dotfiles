@@ -4,7 +4,7 @@ return {
 		opts = {
 			filesystem = {
 				filtered_items = {
-          hide_dotfiles = false,
+          			hide_dotfiles = true,
 				},
 			},
 		},
@@ -19,7 +19,7 @@ return {
 			require("neo-tree").setup({
 				filesystem = {
 					filtered_items = {
-						hide_dotfiles = false,
+						hide_dotfiles = true,
 					},
 				},
 			})
@@ -34,8 +34,6 @@ return {
 					local node = state.tree:get_node()
 					if node then
 						local path = node:get_id()
-						print("Node type:", node.type)
-						print("Node path:", path)
 						
 						local Terminal = require('toggleterm.terminal').Terminal
 						
