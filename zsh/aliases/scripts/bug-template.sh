@@ -1,10 +1,10 @@
 #!/bin/bash
 
-AI_PROMPT="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/AI_PROMPT_TEMPLATE.md"
+# AI_PROMPT="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/Work/AI_PROMPT_TEMPLATE.md"
 
-DIFF_PROMPT="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/DIFF_STANDARDS.md"
+DIFF_PROMPT="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/Work/DIFF_STANDARDS.md"
 
-CODING_STANDARDS="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/CODING_STANDARDS.md"
+CODING_STANDARDS="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/Work/CODING_STANDARDS.md"
 
 echo "Creating the diff..."
 
