@@ -30,4 +30,4 @@ alias gcp="git cherry-pick"
 alias gwtc="bash ~/dotfiles/zsh/aliases/scripts/create_worktree.sh"
 
 ## Git config switching
-alias gswitch="bash ~/dotfiles/git-switch.sh"
+alias gswitch="bash ~/dotfiles/zsh/aliases/scripts/git-switch.sh"

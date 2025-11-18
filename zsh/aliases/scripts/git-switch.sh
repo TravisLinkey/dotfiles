@@ -6,6 +6,12 @@
 case "$1" in
     "personal")
         echo "Switching to personal Git config..."
+        git config user.email "tlinkey0818@gmail.com"
+        git config user.name "Travis Linkey"
+        echo "✅ Switched to personal config (tlinkey0818@gmail.com)"
+        ;;
+    "liftskit")
+        echo "Switching to personal Git config..."
         git config user.email "liftskit@gmail.com"
         git config user.name "Travis Linkey"
         echo "✅ Switched to personal config (liftskit@gmail.com)"
