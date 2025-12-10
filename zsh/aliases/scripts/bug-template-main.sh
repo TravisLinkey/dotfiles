@@ -9,13 +9,12 @@ CODING_STANDARDS="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Sou
 echo "Creating the diff..."
 
 # create the diff file
-git diff remotes/origin/master...HEAD > DIFF.md
+git diff remotes/origin/main...HEAD > DIFF.md
 
 
 echo "Creating the prompt files..."
 
 # create the coding standards file
-cp "$AI_PROMPT" .
 cp "$DIFF_PROMPT" .
 cp "$CODING_STANDARDS" .
 

@@ -4,6 +4,11 @@ for file in ~/dotfiles/zsh/aliases/*.zsh; do
   source "$file"
 done
 
+# Claude Code
+export PATH="$HOME/.local/bin:$PATH"
+
+export PATH="$PATH:$HOME/Projects/bash/workspace/git-diff-analyzer/bin"
+
 goto() {
   local dest=$(bash ~/dotfiles/zsh/aliases/scripts/goto.sh $1)
   if [ $? -eq 0 ] && [ -d "$dest" ]; then
@@ -46,3 +51,4 @@ export PATH=$HOME//opt/homebrew/Cellar/erlang/28.0.1/lib/erlang/erts-16.0.1/bin:
 export PATH=$HOME//opt/homebrew/bin:$PATH
 alias kl="kill \$(lsof -ti:\$1)"
 
+export PATH="$PATH:/Users/travislinkey/Projects/bash/workspace/git-diff-analyzer/bin"
