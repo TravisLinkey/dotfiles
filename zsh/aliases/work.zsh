@@ -19,5 +19,8 @@ alias init:fe="bash ~/dotfiles/zsh/aliases/scripts/refresh_local.sh"
 alias init:schema="docker exec -it docket-firebase-1 node functions/utils/schema.js"
 alias seed:fe="docker compose exec firebase node functions/utils/schema.js"
 
+# NEW STUFF
 alias gdr="~/Projects/bash/workspace/git-diff-analyzer/bin/git-diff-review.sh"
 alias gds="~/Projects/bash/workspace/git-diff-analyzer/bin/git-diff-summary.sh"
+alias plan="bash ~/dotfiles/zsh/aliases/scripts/create_plan.sh"
+alias cov="bash /Users/travislinkey/Projects/bash/workspace/coverage-creator/main.sh"
