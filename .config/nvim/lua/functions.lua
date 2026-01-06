@@ -160,13 +160,20 @@ local function select_file(prompt_title, cwd, callback)
 
   pickers.new({}, {
     prompt_title = prompt_title,
-    finder = finders.new_oneshot_job({ 'find', cwd, '-type', 'f' }, { cwd = cwd }),
+    cwd = cwd,
+    finder = finders.new_oneshot_job({ 'find', '.', '-type', 'f' }, { cwd = cwd }),
     sorter = conf.generic_sorter({}),
+    path_display = { "smart" },
     attach_mappings = function(prompt_bufnr, map)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
-        callback(selection[1])
+        local path = selection[1]
+        -- Convert relative path to absolute if needed
+        if not (path:match('^/') or path:match('^~')) then
+          path = vim.fn.fnamemodify(cwd .. '/' .. path, ':p')
+        end
+        callback(path)
       end)
       return true
     end,
@@ -183,13 +190,20 @@ local function select_directory(prompt_title, cwd, callback)
 
   pickers.new({}, {
     prompt_title = prompt_title,
-    finder = finders.new_oneshot_job({ 'find', cwd, '-type', 'd' }, { cwd = cwd }),
+    cwd = cwd,
+    finder = finders.new_oneshot_job({ 'find', '.', '-type', 'd' }, { cwd = cwd }),
     sorter = conf.generic_sorter({}),
+    path_display = { "smart" },
     attach_mappings = function(prompt_bufnr, map)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
-        callback(selection[1])
+        local path = selection[1]
+        -- Convert relative path to absolute if needed
+        if not (path:match('^/') or path:match('^~')) then
+          path = vim.fn.fnamemodify(cwd .. '/' .. path, ':p')
+        end
+        callback(path)
       end)
       return true
     end,

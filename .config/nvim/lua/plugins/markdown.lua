@@ -9,13 +9,13 @@ return {
       vim.g.vim_markdown_follow_anchor = 0
       vim.g.vim_markdown_auto_extension = 0
       vim.g.vim_markdown_edit_url_in = 0
-      
+
       -- Disable other features that might interfere with obsidian.nvim
       vim.g.vim_markdown_math = 0
       vim.g.vim_markdown_frontmatter = 0
       vim.g.vim_markdown_strikethrough = 0
       vim.g.vim_markdown_autowrite = 0
-      
+
       -- Basic markdown settings
       vim.g.vim_markdown_folding_disabled = 1
       vim.g.vim_markdown_override_foldtext = 0
@@ -36,4 +36,4 @@ return {
       vim.g.vmt_dont_insert_fence = 1
     end
   }
-} 
+}

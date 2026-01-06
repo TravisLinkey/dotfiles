@@ -7,7 +7,7 @@ return
     config = function()
       require('telescope').setup {
         defaults = {
-          -- Your other configuration here, if any
+          path_display = { "smart" },
         },
         pickers = {
           find_files = {
