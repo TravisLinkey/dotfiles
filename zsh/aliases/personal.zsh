@@ -17,3 +17,5 @@ alias dot="cd ~/dotfiles && nvim ."
 
 alias fu="~/dotfiles/zsh/aliases/scripts/frontmatter-util.sh"
 alias pj="~/dotfiles/zsh/aliases/scripts/fuzzy_search_dir.sh"
+
+alias g++="g++ --std=c++17"

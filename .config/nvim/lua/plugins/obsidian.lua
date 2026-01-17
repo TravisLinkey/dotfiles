@@ -112,6 +112,8 @@ return {
           "id: " .. filename,
           "Subject:",
           "Type:",
+          "study:",
+          "last_reviewed: " .. current_time,
           "created: " .. current_time,
           "modified: " .. current_time,
           "aliases: []",
