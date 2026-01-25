@@ -112,7 +112,7 @@ return {
           "id: " .. filename,
           "Subject:",
           "Type:",
-          "study:",
+          "study: " .. "true",
           "last_reviewed: " .. current_time,
           "created: " .. current_time,
           "modified: " .. current_time,
