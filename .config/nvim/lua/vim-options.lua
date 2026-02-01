@@ -19,6 +19,10 @@ end, {})
 vim.keymap.set('n', '<c-t>', ':ObsidianTemplate<CR>')
 vim.keymap.set('n', '<c-o>', ':ObsidianNew<CR>')
 vim.keymap.set('n', '<leader>mv', ':TelescopeMoveFile<CR>')
+vim.keymap.set('n', '<leader>ts', function()
+  local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+  vim.api.nvim_put({ timestamp }, 'l', true, true)
+end, { desc = "Insert timestamp" })
 
 -- Navigate vim panes
 

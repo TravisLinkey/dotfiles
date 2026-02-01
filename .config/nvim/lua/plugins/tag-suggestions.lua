@@ -1,5 +1,6 @@
 return {
   "TravisLinkey/nvim-tag-suggestions",
+  enabled = false,
   tag = "v1.0.0",
   dependencies = {
     "nvim-lua/plenary.nvim",
