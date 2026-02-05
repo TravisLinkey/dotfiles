@@ -9,7 +9,7 @@ cp ~/Projects/ServiceCore/workspace/Docket-Platform/docket-platform/apps/docket-
 echo "Copy env file for docket-api..."
 cp ~/Projects/ServiceCore/workspace/Docket-Platform/docket-platform/apps/docket-api/.env.dist ./apps/docket-api/.env
 
-echo "Copy env file for docket-api..."
+echo "Copy docket-stage.json..."
 cp ~/Projects/ServiceCore/workspace/Docket-Platform/docket-platform/docket-stage.json .
 
 echo "✅ Done!"
