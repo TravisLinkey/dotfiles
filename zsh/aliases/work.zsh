@@ -29,3 +29,6 @@ alias plan="bash ~/dotfiles/zsh/aliases/scripts/create_plan.sh"
 alias cov="bash /Users/travislinkey/Projects/bash/workspace/coverage-creator/main.sh"
 alias pr="npm run prettier:fix"
 alias auth="npm run auth:create-service-account:dev 2>&1 | grep -E 'Key:|Secret:'"
+
+alias run='echo "checkout the files in the @CONTEXT folder and lets get started" | amp'
+alias run:fix='echo "checkout the files in the @CONTEXT folder and lets get started. Pay special attention to the ## OUSTANDING ISSUES section" | amp'
