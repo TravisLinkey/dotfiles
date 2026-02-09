@@ -1,10 +1,3 @@
-wk() {
-  cmake -S . -B build &&
-  cmake --build build &&
-  ./build/workspacer "$@"
-}
-
-
 
 # aliases
 for file in ~/dotfiles/zsh/aliases/*.zsh; do

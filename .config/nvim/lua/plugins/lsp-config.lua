@@ -92,7 +92,14 @@ return {
         },
       })
       lspconfig.clangd.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        init_options = {
+          -- So clangd finds Boost and other Homebrew headers when there's no compile_commands.json
+          fallbackFlags = {
+            "-I/opt/homebrew/include",   -- Apple Silicon Homebrew (Boost, etc.)
+            "-I/usr/local/include",      -- Intel Homebrew
+          },
+        },
       })
       lspconfig.sourcekit.setup({
         capabilities = capabilities

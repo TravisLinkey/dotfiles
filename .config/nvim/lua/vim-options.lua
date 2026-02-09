@@ -49,11 +49,11 @@ vim.keymap.set("n", '<c-w>"', ":ToggleTerm direction=horizontal<CR>")
 vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>:CFloatTerm<CR>', {noremap = true, silent = true})
 
 -- Window width 
-vim.keymap.set("n", "<leader><Up>", ":horizontal resize +30<CR>")
-vim.keymap.set("n", '<leader><Down>', ":horizontal resize -30<CR>")
+vim.keymap.set("n", "<leader><Up>", ":horizontal resize +10<CR>")
+vim.keymap.set("n", '<leader><Down>', ":horizontal resize -10<CR>")
 
-vim.keymap.set("n", "<leader><Left>", ":vertical resize +30<CR>")
-vim.keymap.set("n", '<leader><Right>', ":vertical resize -30<CR>")
+vim.keymap.set("n", "<leader><Left>", ":vertical resize +10<CR>")
+vim.keymap.set("n", '<leader><Right>', ":vertical resize -10<CR>")
 
 
 -- Goto in vertical split window - smart mapping for LSP and Obsidian links
