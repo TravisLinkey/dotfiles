@@ -1,10 +1,10 @@
 #!/bin/bash
 
-PLAN_FILE="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/Work/00__PLAN_FILE.txt"
+PLAN_FILE="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/Work/00__PLAN_FILE.md"
 
-CODING_STANDARDS="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/Work/01__CODING_STANDARDS.txt"
+CODING_STANDARDS="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/Work/01__CODING_STANDARDS.md"
 
-TESTING_STANDARDS="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/Work/02__TESTING_STANDARDS.txt"
+TESTING_STANDARDS="/Users/travislinkey/Documents/Obsidian/Travis/obsidian/3 - Source Material/AI Prompts/Work/02__TESTING_STANDARDS.md"
 
 mkdir -p CONTEXT
 
