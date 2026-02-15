@@ -11,11 +11,13 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "~/Documents/Obsidian/Travis/obsidian",
+        -- Expand ~ so template resolution works consistently across machines
+        path = vim.fn.expand("~/Documents/Obsidian/Travis/obsidian"),
       }
     },
     templates = {
-      folder = "4 - Templates"
+      -- Absolute path so template discovery works even if cwd/workspace differs. Template picker uses ripgrep (rg); ensure rg is in PATH when starting Neovim (e.g. start from a terminal, or add /opt/homebrew/bin to PATH for GUI).
+      folder = vim.fn.expand("~/Documents/Obsidian/Travis/obsidian/4 - Templates"),
     },
     ui = {
       enable = false,
@@ -34,10 +36,6 @@ return {
 
     -- Disable problematic features that cause buffer errors
     disable_checkbox = true,
-    
-    -- Disable other features you don't use
-    disable_workspace = true,
-    disable_templates = true,
     
     -- Disable all checkbox-related commands and mappings
     mappings = {},

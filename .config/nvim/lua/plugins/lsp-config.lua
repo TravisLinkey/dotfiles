@@ -18,27 +18,27 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      -- Capabilities (e.g. for nvim-cmp); fallback if cmp_nvim_lsp not loaded
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+      if ok and cmp_lsp then
+        capabilities = cmp_lsp.default_capabilities(capabilities)
+      end
 
-      local lspconfig = require("lspconfig")
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.eslint.setup({
-        capabilities = capabilities
-      })
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
-      lspconfig.gopls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.emmet_language_server.setup({
+      -- Global default: all configs get these capabilities
+      vim.lsp.config("*", {
         capabilities = capabilities,
+      })
+
+      -- Server-specific overrides (nvim-lspconfig provides base configs via lsp/*.lua)
+      vim.lsp.config("ts_ls", {})
+      vim.lsp.config("eslint", {})
+      vim.lsp.config("solargraph", {})
+      vim.lsp.config("gopls", {})
+      vim.lsp.config("emmet_language_server", {
         filetypes = { "html", "heex" },
       })
-      lspconfig.html.setup({
-        capabilities = capabilities,
+      vim.lsp.config("html", {
         filetypes = { "html", "heex" },
         settings = {
           html = {
@@ -53,8 +53,7 @@ return {
           },
         },
       })
-      lspconfig.elixirls.setup({
-        capabilities = capabilities,
+      vim.lsp.config("elixirls", {
         cmd = { "elixir-ls" },
         settings = {
           elixirLS = {
@@ -65,46 +64,47 @@ return {
           },
         },
       })
-      lspconfig.lua_ls.setup({
+      vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
-            runtime = {
-              -- Tell the language server which version of Lua you're using
-              -- (most likely LuaJIT in the case of Neovim)
-              version = 'LuaJIT',
-            },
+            runtime = { version = "LuaJIT" },
             diagnostics = {
-              -- Get the language server to recognize the `vim` global
-              globals = {
-                'vim',
-                'require'
-              },
+              globals = { "vim", "require" },
             },
             workspace = {
-              -- Make the server aware of Neovim runtime files
               library = vim.api.nvim_get_runtime_file("", true),
             },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-              enable = false,
-            },
+            telemetry = { enable = false },
           },
         },
       })
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
+      vim.lsp.config("clangd", {
         init_options = {
-          -- So clangd finds Boost and other Homebrew headers when there's no compile_commands.json
           fallbackFlags = {
-            "-I/opt/homebrew/include",   -- Apple Silicon Homebrew (Boost, etc.)
-            "-I/usr/local/include",      -- Intel Homebrew
+            "-I/opt/homebrew/include",
+            "-I/usr/local/include",
           },
         },
       })
-      lspconfig.sourcekit.setup({
-        capabilities = capabilities
-      })
+      vim.lsp.config("sourcekit", {})
 
+      -- Enable all configured servers (uses filetypes from nvim-lspconfig's lsp/*.lua)
+      for _, name in ipairs({
+        "ts_ls",
+        "eslint",
+        "solargraph",
+        "gopls",
+        "emmet_language_server",
+        "html",
+        "elixirls",
+        "lua_ls",
+        "clangd",
+        "sourcekit",
+      }) do
+        vim.lsp.enable(name)
+      end
+
+      -- Keymaps (optional; Neovim 0.11+ sets K, grr, gra, etc. by default)
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})

@@ -8,6 +8,18 @@ return
       require('telescope').setup {
         defaults = {
           path_display = { "smart" },
+          layout_strategy = "horizontal",
+          preview = {
+            -- Avoid ft_to_lang nil error with newer nvim-treesitter (telescope#3487)
+            treesitter = false,
+          },
+          layout_config = {
+            horizontal = {
+              preview_width = 0.50,
+              -- Show preview even in narrower windows (default 120 hides it below 120 cols)
+              preview_cutoff = 40,
+            },
+          },
         },
         pickers = {
           find_files = {
@@ -30,6 +42,9 @@ return
     "nvim-telescope/telescope-ui-select.nvim",
     config = function()
       require("telescope").setup({
+        defaults = {
+          preview = { treesitter = false },
+        },
         pickers    = {
           live_grep = {
             file_ignore_patterns = { 'node_modules' }
