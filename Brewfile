@@ -8,9 +8,16 @@ cask "nikitabobko/tap/aerospace"
 # Hotkey daemon
 brew "koekeishiya/formulae/skhd"
 
-# CLI tools for Neovim (ripgrep: Obsidian template picker; fd: Telescope find_files <leader>ff)
+# Neovim (match version across machines; dotfiles expect this)
+brew "neovim"
+
+# CLI tools for Neovim (ripgrep: Obsidian template picker; fd: Telescope find_files <leader>ff; prettier: <leader>gf formatting via none-ls)
 brew "ripgrep"
 brew "fd"
+brew "prettier"
 
-# Nerd Fonts for Neovim (render-markdown.nvim, nvim-web-devicons, statuslines, etc.)
+# Node (LSPs, prettier, and many Neovim-related tools)
+brew "node"
+
+# Nerd Fonts for Neovim (render-markdown.nvim, markdown bold/italic, statuslines; set as terminal/editor font)
 cask "font-jetbrains-mono-nerd-font"

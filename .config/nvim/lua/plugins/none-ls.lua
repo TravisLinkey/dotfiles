@@ -9,7 +9,13 @@ return {
 			sources = {
 				require("none-ls.diagnostics.eslint_d"),
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.prettier,
+				-- Explicit filetypes so none-ls attaches to markdown (no LSP) and format works for <leader>gf
+				null_ls.builtins.formatting.prettier.with({
+					filetypes = {
+						"javascript", "javascriptreact", "typescript", "typescriptreact",
+						"json", "jsonc", "yaml", "html", "css", "scss", "markdown",
+					},
+				}),
 			},
 		})
 

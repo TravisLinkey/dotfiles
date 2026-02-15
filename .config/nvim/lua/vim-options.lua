@@ -9,6 +9,13 @@ vim.g.background = "light"
 
 vim.opt.swapfile = false
 vim.o.splitright = true
+-- Allow concealed text (e.g. markdown **bold**) to show as formatted; 2 = show replacement
+vim.opt.conceallevel = 2
+
+-- Default zoom/size when opening Neovim (GUI only; terminal uses terminal font size)
+vim.opt.guifont = "JetBrainsMono Nerd Font:h12"
+-- Neovide: lower scale = smaller UI; has no effect in terminal or other GUIs
+vim.g.neovide_scale_factor = 0.85
 
 -- Command to move files (replacement for Ctrl+M)
 vim.api.nvim_create_user_command('MoveFile', function()

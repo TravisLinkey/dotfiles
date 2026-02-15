@@ -22,7 +22,8 @@ return {
       vim.g.vim_markdown_folding_level = 6
       vim.g.vim_markdown_toc_autofit = 1
       vim.g.vim_markdown_no_extensions_in_markdown = 1
-      vim.g.vim_markdown_conceal = 0
+      -- Conceal ** and * so bold/italic show as formatted text instead of raw markers
+      vim.g.vim_markdown_conceal = 1
       vim.g.vim_markdown_conceal_code_blocks = 0
       vim.g.vim_markdown_folding_style_pythonic = 1
     end
