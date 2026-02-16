@@ -76,6 +76,29 @@ vim.keymap.set('n', '<leader>]', function()
   end
 end, { desc = "Go to definition or follow Obsidian link" })
 
+-- Goto in new tab - same as <leader>c (tabnew) but opens the referenced file (Obsidian link or LSP definition)
+-- Use <Char-125> for } so the mapping is reliably recognized
+vim.keymap.set('n', '<leader><Char-125>', function()
+  if vim.bo.filetype == 'markdown' and require('obsidian.util').cursor_on_markdown_link() then
+    local cur_tab = vim.api.nvim_get_current_tabpage()
+    local cur_buf = vim.api.nvim_get_current_buf()
+    vim.cmd('tabnew')
+    local new_tab = vim.api.nvim_get_current_tabpage()
+    vim.cmd('tabprevious')
+    vim.cmd('ObsidianFollowLink')
+    local linked_path = vim.api.nvim_buf_get_name(0)
+    vim.api.nvim_set_current_tabpage(new_tab)
+    vim.cmd('e ' .. vim.fn.fnameescape(linked_path))
+    vim.api.nvim_set_current_tabpage(cur_tab)
+    local winid = vim.api.nvim_tabpage_get_win(cur_tab)
+    vim.api.nvim_win_set_buf(winid, cur_buf)
+    vim.api.nvim_set_current_tabpage(new_tab)
+  else
+    vim.cmd('tabnew')
+    vim.lsp.buf.definition()
+  end
+end, { desc = "Go to definition or follow Obsidian link in new tab" })
+
 -- Toggle checkbox functionality
 vim.keymap.set('n', '<leader>r', function()
   local line = vim.api.nvim_get_current_line()

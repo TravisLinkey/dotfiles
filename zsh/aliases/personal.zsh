@@ -13,3 +13,5 @@ alias pj="~/dotfiles/zsh/aliases/scripts/fuzzy_search_dir.sh"
 
 alias g++="g++ --std=c++17 -o ./output/output.o"
 alias wk='/Users/travislinkey/Projects/cpp/workspace/workspacer/build/workspacer'
+
+alias Topic="mkdir 00_Concepts 01_Fragments 02_Notes 03_Diagrams"
