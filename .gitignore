@@ -1,0 +1,11 @@
+openai_env
+
+# SSH keys - never commit private keys
+.ssh/id_ed25519
+.ssh/id_ed25519.pub
+
+# GitHub CLI - hosts.yml gets oauth_token when you run `gh auth login`
+.config/gh/hosts.yml
+
+# Karabiner auto-generated backups
+.config/karabiner/automatic_backups/

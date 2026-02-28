@@ -1,0 +1,16 @@
+[alias]
+	tidy = "! git branch | grep -v "master$" | xargs git branch -D"
+
+# Conditional includes based on directory
+[includeIf "gitdir:~/Projects/Personal/"]
+	path = ~/.gitconfigs/personal
+
+[includeIf "gitdir:~/Projects/NextJS/workspace/website-v2/"]
+	path = ~/.gitconfigs/personal
+
+[credential]
+	helper = osxkeychain
+	helper = /usr/local/share/gcm-core/git-credential-manager
+
+[credential "https://dev.azure.com"]
+	useHttpPath = true
