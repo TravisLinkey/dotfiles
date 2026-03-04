@@ -9,3 +9,5 @@ openai_env
 
 # Karabiner auto-generated backups
 .config/karabiner/automatic_backups/
+
+.gitconfig

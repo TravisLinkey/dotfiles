@@ -1,5 +1,7 @@
 [ -f ~/.flow-secrets ] && source ~/.flow-secrets
 
+skhd --start-service
+
 # aliases
 for file in ~/dotfiles/zsh/aliases/*.zsh; do
   echo "[zsh] Sourcing ${file}"
